@@ -30,7 +30,7 @@ d.	Polimorfismo.
         $capturaDatos->setUnidadOrigen($unidadOrigen);
         $capturaDatos->setUnidadDestino($unidadDestino);
 
-        $conversorController = new ConversorLongitud();
+        $conversorController = new ConversorController();
         $resultado = $conversorController->convertir($capturaDatos);
     } 
     ?>
@@ -50,13 +50,13 @@ d.	Polimorfismo.
 
             <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item">
-                    <a class="nav-link active text-success" aria-current="page" href="./index.php">Longitud</a>
+                    <a class="nav-link text-body-tertiary" href="./index.php">Longitud</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-body-tertiary" href="./Masa.php">Masa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-body-tertiary" href="./Volumen.php">Volumen</a>
+                    <a class="nav-link active text-success" aria-current="page" href="./Volumen.php">Volumen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-body-tertiary" href="./Datos.php">Datos</a>

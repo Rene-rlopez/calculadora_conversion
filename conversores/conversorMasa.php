@@ -4,17 +4,17 @@ interface calcular{
     public function convert($value);
 }
 
-class gramoComversion implements calcular{
+class GramoConversion implements calcular{
     public function convert($value) {
         return $value;
     }
 }
-class kilogramoComversion implements calcular{
+class KilogramoConversion implements calcular{
     public function convert($value) {
         return $value * 1000; // 1 kilogramo = 1000gramo
     }
 }
-class libraComversion implements calcular{
+class LibraConversion implements calcular{
     public function convert($value) {
         return $value * 453.592; // 1 libra = 453.592 gramos
     }
@@ -33,20 +33,23 @@ class masaCalculadora{
 }
 
 
-$gramoComversion = new Gramocomversion();
-$kilogramoComversion = new KilogramoComversion();
+$gramoConversion = new GramoConversion();
+$kilogramoConversion = new KilogramoConversion();
 $libraConversion = new LibraConversion();
 
 //R: 1000 gramos
-$caculadora1 = new masaCalculadora($gramoComversion);
-echo $caculadora1->calculate(1000, 'gramo');
+$calculadora1 = new masaCalculadora($gramoConversion);
+echo $calculadora1->calculate(1000, 'gramo<br>');
+
 
 //R: 2kg 2000 gramos
-$caculadora2 = new masaCalculadora($kilogramoComversion);
-echo $caculadora1->calculate(2, 'kilogramo');
+$calculadora2 = new masaCalculadora($kilogramoConversion);
+echo $calculadora1->calculate(2, 'kilogramo<br>');
+
+
 
 // R: lb 453.592 gramos
-$caculadora3 = new masaCalculadora($librasComversion);
-echo $caculadora1->calculate(1, 'libra');
+$calculadora3 = new masaCalculadora($libraConversion);
+echo $calculadora1->calculate(1, 'libra<br>');
 
 ?>

@@ -10,7 +10,7 @@ class litrosConversion implements calcular {
     }
 }
 
-class millilitrosConversion implements calcular {
+class mililitrosConversion implements calcular {
     public function convert($value){
         return $value * 0.001; // 1 litro = 1000 millilitros
     }
@@ -30,7 +30,7 @@ class volumenCalculadora {
     }
 
     public function calculate($value, $unit) {
-        return $this->convereter->conver($value) . "" . $this; 
+        return $this->converter->conver($value) . "" . $this; 
     }
 }
 

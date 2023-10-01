@@ -1,24 +1,6 @@
-
-<!-- 
-
-DESCRIPCIÓN DE LA APLICACIÓN A DESARROLLAR
-Crear una calculadora de conversión de unidades de medida, desarrollada en lenguaje PHP, haciendo uso de los conocimientos adquiridos a lo largo del bootcamp.
-
-PUNTOS DE EVALUACIÓN (60%)
-1.	Debe aplicar la Programación Orientada a Objetos. (30%)
-a.	Clases y encapsulamiento.
-b.	Abstracción.
-c.	Herencia.
-d.	Polimorfismo.
-
-2.	Debe aplicar al menos 3 principios SOLID. (30%)
-
-
--->
-
     <?php 
     include "./modulos/header.php"; 
-    require "./conversores/conversorLongitud.php"; 
+    require "./conversores/conversorDatos.php"; 
 
     if(isset($_POST['cantidadUsuario'], $_POST['unidadOrigen'], $_POST['unidadDestino'])){
         $cantidadUsuario = $_POST['cantidadUsuario'];
@@ -30,7 +12,7 @@ d.	Polimorfismo.
         $capturaDatos->setUnidadOrigen($unidadOrigen);
         $capturaDatos->setUnidadDestino($unidadDestino);
 
-        $conversorController = new ConversorLongitud();
+        $conversorController = new ConversorDatos();
         $resultado = $conversorController->convertir($capturaDatos);
     } 
     ?>
@@ -50,7 +32,7 @@ d.	Polimorfismo.
 
             <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item">
-                    <a class="nav-link active text-success" aria-current="page" href="./index.php">Longitud</a>
+                    <a class="nav-link text-body-tertiary" href="./index.php">Longitud</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-body-tertiary" href="./Masa.php">Masa</a>
@@ -59,7 +41,7 @@ d.	Polimorfismo.
                     <a class="nav-link text-body-tertiary" href="./Volumen.php">Volumen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-body-tertiary" href="./Datos.php">Datos</a>
+                    <a class="nav-link active text-success" aria-current="page" href="./Datos.php">Datos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-body-tertiary" href="./Moneda.php">Moneda</a>
@@ -77,24 +59,22 @@ d.	Polimorfismo.
 
                     <select class="form-control text-center" name="unidadOrigen" id="" required>
                         <option value="">Seleccione unidad</option>
-                        <option value="mm">Milimetros</option>
-                        <option value="cm">Centimetros</option>
-                        <option value="pl">Pulgada</option>
-                        <option value="yrd">Yarda</option>
-                        <option value="m">Metros</option>
-                        <option value="Km">Kilometros</option>
+                        <option value="byte">byte</option>
+                        <option value="KB">Kilobyte</option>
+                        <option value="MB">Megabyte</option>
+                        <option value="GB">Gigabyte</option>
+                        <option value="TB">Terabyte</option>
                     </select>
 
                     <input class="form-control text-center" type="text" value="<?= isset($resultado) ? $resultado . htmlspecialchars($_POST['unidadDestino']) : 'Esperando Informacion' ?>" disabled>
 
                     <select class="form-control text-center" name="unidadDestino" id="" required>
                         <option value="">Seleccione unidad</option>
-                        <option value="mm">Milimetros</option>
-                        <option value="cm">Centimetros</option>
-                        <option value="pl">Pulgada</option>
-                        <option value="yrd">Yarda</option>
-                        <option value="m">Metros</option>
-                        <option value="Km">Kilometros</option>
+                        <option value="byte">byte</option>
+                        <option value="KB">Kilobyte</option>
+                        <option value="MB">Megabyte</option>
+                        <option value="GB">Gigabyte</option>
+                        <option value="TB">Terabyte</option>
                     </select>
 
                     <input class="btn btn-dark mb-3  fw-bold" type="submit" value="Calcular">

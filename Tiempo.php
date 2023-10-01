@@ -1,21 +1,3 @@
-
-<!-- 
-
-DESCRIPCIÓN DE LA APLICACIÓN A DESARROLLAR
-Crear una calculadora de conversión de unidades de medida, desarrollada en lenguaje PHP, haciendo uso de los conocimientos adquiridos a lo largo del bootcamp.
-
-PUNTOS DE EVALUACIÓN (60%)
-1.	Debe aplicar la Programación Orientada a Objetos. (30%)
-a.	Clases y encapsulamiento.
-b.	Abstracción.
-c.	Herencia.
-d.	Polimorfismo.
-
-2.	Debe aplicar al menos 3 principios SOLID. (30%)
-
-
--->
-
     <?php 
     include "./modulos/header.php"; 
     require "./conversores/conversorLongitud.php"; 
@@ -30,7 +12,7 @@ d.	Polimorfismo.
         $capturaDatos->setUnidadOrigen($unidadOrigen);
         $capturaDatos->setUnidadDestino($unidadDestino);
 
-        $conversorController = new ConversorLongitud();
+        $conversorController = new ConversorController();
         $resultado = $conversorController->convertir($capturaDatos);
     } 
     ?>
@@ -50,7 +32,7 @@ d.	Polimorfismo.
 
             <ul class="nav nav-tabs nav-fill">
                 <li class="nav-item">
-                    <a class="nav-link active text-success" aria-current="page" href="./index.php">Longitud</a>
+                    <a class="nav-link text-body-tertiary" href="./index.php">Longitud</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-body-tertiary" href="./Masa.php">Masa</a>
@@ -65,7 +47,7 @@ d.	Polimorfismo.
                     <a class="nav-link text-body-tertiary" href="./Moneda.php">Moneda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-body-tertiary" href="./Tiempo.php">Tiempo</a>
+                    <a class="nav-link active text-success" aria-current="page" href="./Tiempo.php">Tiempo</a>
                 </li>
             </ul>
 

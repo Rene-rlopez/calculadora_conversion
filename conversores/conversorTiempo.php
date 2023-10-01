@@ -9,7 +9,7 @@ class segundosConversion implements calcular{
         return $value; 
     }
 }
-class minutesConversion implements calcular{
+class minutosConversion implements calcular{
     public function convert($value) {
         return $value * 60; // 1 minuto = 60 segundos
     }
@@ -20,7 +20,7 @@ class horasConversion implements calcular{
     }
 }
 
-class tiempocalculadora {
+class tiempoCalculadora {
     private $converter;
 
     public function __construct(calcular $converter) {
@@ -36,13 +36,13 @@ $segundosConversion = new segundosConversion();
 $minutosConversion = new minutosConversion();
 $horasConversion = new horasConversion();
 
-$calculadora1 = new tiempoComversion($segundosConversion);
+$calculadora1 = new tiempoCalculadora($segundosConversion);
 echo $calculadora1->calculate(120, 'segundos');
 
-$calculadora2 = new tiempoComversion($minutosdosConversion);
+$calculadora2 = new tiempoCalculadora($minutosdosConversion);
 echo $calculadora1->calculate(2, 'minutos');
 
-$calculadora3 = new tiempoComversion($horasdosConversion);
+$calculadora3 = new tiempoCalculadora($horasdosConversion);
 echo $calculadora1->calculate(1, 'horas');
 
 ?>
