@@ -1,6 +1,12 @@
 <?php 
 
-class CapturaDatos {
+interface DatosConversion {
+    public function getCantidadUsuario();
+    public function getUnidadOrigen();
+    public function getUnidadDestino();
+}
+
+class CapturaDatos implements DatosConversion{
     private $cantidadUsuario;
     private  $unidadOrigen; 
     private  $unidadDestino;
@@ -42,7 +48,7 @@ class CapturaDatos {
 
 class ConversorTiempo {
 
-    public function convertir(CapturaDatos $capturaDatos){
+    public function convertir(DatosConversion $capturaDatos){
 
         $cantidadUsuario = $capturaDatos->getCantidadUsuario();
         $unidadOrigen = $capturaDatos->getUnidadOrigen();
