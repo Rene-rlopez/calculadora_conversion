@@ -18,11 +18,31 @@
 </head>
 <body>
 
-    <header class="mb-4">
-        <div class="imagen d-flex flex-column text-center mx-auto p-2">
+    <header class="mb-4 position-relative d-block">
+
+                        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/img/header01.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/img/header03.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/img/header06.jpeg" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+        <div class="texto-header d-flex flex-column text-center mx-auto p-2 position-absolute top-50 start-50 translate-middle">
+            <h1 class="ft-color01">Conversor de unidades</h1>
+        </div> 
+
+
+        <!-- <div class="imagen d-flex flex-column text-center mx-auto p-2">
             <h1 class="ft-color01">Conversor de unidades</h1>
             <p class="ft-color01 fs-5">Utilizando PHP</p>
-        </div>
+        </div> -->
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-body-tertiary " data-bs-theme="dark">
             <div class="container justify-content-center">

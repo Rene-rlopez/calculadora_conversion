@@ -1,55 +1,65 @@
-<?php
+<?php 
 
-interface calcular{
-    public function convert($value);
-}
+class CapturaDatos {
+    private $cantidadUsuario;
+    private  $unidadOrigen; 
+    private  $unidadDestino;
 
-class GramoConversion implements calcular{
-    public function convert($value) {
-        return $value;
-    }
-}
-class KilogramoConversion implements calcular{
-    public function convert($value) {
-        return $value * 1000; // 1 kilogramo = 1000gramo
-    }
-}
-class LibraConversion implements calcular{
-    public function convert($value) {
-        return $value * 453.592; // 1 libra = 453.592 gramos
-    }
-}
+    private $unidadesLongitud = [
+        'mg' => 1000,
+        'g' => 1,
+        'kg' => 0.001,
+        'lb' => 0.00220462,
+        'oz' => 0.035274,
+    ];
 
-
-class masaCalculadora{
-    private $converter;
-    public function __construct(calcular $converter) {
-        $this->converter = $converter;
+    public function setCantidadUsuario($cantidadUsuario){
+        $this->cantidadUsuario = $cantidadUsuario;
     }
 
-    public function calculate($value, $unit) {
-        return $this->converter->convert($value) . " " . $unit;
+    public function setUnidadOrigen($unidadOrigen) {
+        $this->unidadOrigen = $this->unidadesLongitud[$unidadOrigen];
+    }
+
+    public function setUnidadDestino($unidadDestino) {
+        $this->unidadDestino = $this->unidadesLongitud[$unidadDestino];
+    }
+
+    public function getCantidadUsuario(){
+        return $this->cantidadUsuario;
+    }
+
+    public function getUnidadOrigen() {
+        return $this->unidadOrigen;
+    }
+
+    public function getUnidadDestino() {
+        return $this->unidadDestino;
     }
 }
 
+class ConversorMasa {
 
-$gramoConversion = new GramoConversion();
-$kilogramoConversion = new KilogramoConversion();
-$libraConversion = new LibraConversion();
+    public function convertir(CapturaDatos $capturaDatos){
 
-//R: 1000 gramos
-$calculadora1 = new masaCalculadora($gramoConversion);
-echo $calculadora1->calculate(1000, 'gramo<br>');
+        $cantidadUsuario = $capturaDatos->getCantidadUsuario();
+        $unidadOrigen = $capturaDatos->getUnidadOrigen();
+        $unidadDestino = $capturaDatos->getUnidadDestino();
 
+        if($unidadOrigen != 1){     
+            $unidadBase = $cantidadUsuario / $unidadOrigen;
+            $total = $unidadBase * $unidadDestino;
+            return round($total, 2);
+        }
+        else if($unidadOrigen == $unidadDestino){
+            return $cantidadUsuario;
+        }
+        else{
+            $total = $unidadDestino * $cantidadUsuario;
+            return round($total, 2);
+        }
+    }
 
-//R: 2kg 2000 gramos
-$calculadora2 = new masaCalculadora($kilogramoConversion);
-echo $calculadora1->calculate(2, 'kilogramo<br>');
-
-
-
-// R: lb 453.592 gramos
-$calculadora3 = new masaCalculadora($libraConversion);
-echo $calculadora1->calculate(1, 'libra<br>');
+}
 
 ?>

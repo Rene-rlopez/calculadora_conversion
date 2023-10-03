@@ -73,7 +73,7 @@ d.	Polimorfismo.
 
                 <form class="celdas" method="POST" action="">
 
-                    <input class="form-control text-center" type="number" name="cantidadUsuario" placeholder="Ingrese el numero" required>
+                    <input class="form-control text-center" type="number" step="any" name="cantidadUsuario" placeholder="Ingrese el numero" required>
 
                     <select class="form-control text-center" name="unidadOrigen" id="" required>
                         <option value="">Seleccione unidad</option>

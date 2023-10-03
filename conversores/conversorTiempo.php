@@ -1,48 +1,67 @@
-<?php
+<?php 
 
-interface calcular{
-    public function convert($value);
-}
+class CapturaDatos {
+    private $cantidadUsuario;
+    private  $unidadOrigen; 
+    private  $unidadDestino;
 
-class segundosConversion implements calcular{
-    public function convert($value) {
-        return $value; 
-    }
-}
-class minutosConversion implements calcular{
-    public function convert($value) {
-        return $value * 60; // 1 minuto = 60 segundos
-    }
-}
-class horasConversion implements calcular{
-    public function convert($value) {
-        return $value * 3600; // 1 horas = 3600 segundos
-    }
-}
+    private $unidadesLongitud = [
+        's' => 86400,
+        'min' => 1440,
+        'h' => 24,
+        'dia' => 1,
+        'semana' => 0.142857,
+        'mes' => 0.0328767,
+        'año' => 0.00273973,
+    ];
 
-class tiempoCalculadora {
-    private $converter;
-
-    public function __construct(calcular $converter) {
-        $this->converter = $converter;
+    public function setCantidadUsuario($cantidadUsuario){
+        $this->cantidadUsuario = $cantidadUsuario;
     }
 
-    public function calculate($value, $unit){
-        return $this->converter->convert($value) . "" . $unit;
+    public function setUnidadOrigen($unidadOrigen) {
+        $this->unidadOrigen = $this->unidadesLongitud[$unidadOrigen];
+    }
+
+    public function setUnidadDestino($unidadDestino) {
+        $this->unidadDestino = $this->unidadesLongitud[$unidadDestino];
+    }
+
+    public function getCantidadUsuario(){
+        return $this->cantidadUsuario;
+    }
+
+    public function getUnidadOrigen() {
+        return $this->unidadOrigen;
+    }
+
+    public function getUnidadDestino() {
+        return $this->unidadDestino;
     }
 }
 
-$segundosConversion = new segundosConversion();
-$minutosConversion = new minutosConversion();
-$horasConversion = new horasConversion();
+class ConversorTiempo {
 
-$calculadora1 = new tiempoCalculadora($segundosConversion);
-echo $calculadora1->calculate(120, 'segundos');
+    public function convertir(CapturaDatos $capturaDatos){
 
-$calculadora2 = new tiempoCalculadora($minutosdosConversion);
-echo $calculadora1->calculate(2, 'minutos');
+        $cantidadUsuario = $capturaDatos->getCantidadUsuario();
+        $unidadOrigen = $capturaDatos->getUnidadOrigen();
+        $unidadDestino = $capturaDatos->getUnidadDestino();
 
-$calculadora3 = new tiempoCalculadora($horasdosConversion);
-echo $calculadora1->calculate(1, 'horas');
+        if($unidadOrigen != 1){     
+            $unidadBase = $cantidadUsuario / $unidadOrigen;
+            $total = $unidadBase * $unidadDestino;
+            return round($total, 3);
+        }
+        else if($unidadOrigen == $unidadDestino){
+            return $cantidadUsuario;
+        }
+        else{
+            $total = $unidadDestino * $cantidadUsuario;
+            return round($total, 3);
+        }
+    }
+
+}
 
 ?>

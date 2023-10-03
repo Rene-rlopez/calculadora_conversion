@@ -95,18 +95,4 @@ class ConversorMoneda {
     }
 }
 
-/*
-$capturaDatos = new CapturaDatos();
-$capturaDatos->setCantidadUsuario(1);
-$capturaDatos->setUnidadOrigen('EUR'); 
-$capturaDatos->setUnidadDestino('USD'); 
-
-// Crear una instancia de ConversorController y llamar al método convertir
-$conversorController = new ConversorMoneda();
-$resultado = $conversorController->convertir($capturaDatos);
-
-// Imprimir el resultado
-echo $resultado;
-*/
-
 ?> 

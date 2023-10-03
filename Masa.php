@@ -13,7 +13,7 @@
         $capturaDatos->setUnidadOrigen($unidadOrigen);
         $capturaDatos->setUnidadDestino($unidadDestino);
 
-        $conversorController = new ConversorController();
+        $conversorController = new ConversorMasa();
         $resultado = $conversorController->convertir($capturaDatos);
     } 
     ?>
@@ -56,28 +56,26 @@
 
                 <form class="celdas" method="POST" action="">
 
-                    <input class="form-control text-center" type="number" name="cantidadUsuario" placeholder="Ingrese el numero" required>
+                    <input class="form-control text-center" type="number" step="any" name="cantidadUsuario" placeholder="Ingrese el numero" required>
 
                     <select class="form-control text-center" name="unidadOrigen" id="" required>
                         <option value="">Seleccione unidad</option>
-                        <option value="mm">Milimetros</option>
-                        <option value="cm">Centimetros</option>
-                        <option value="pl">Pulgada</option>
-                        <option value="yrd">Yarda</option>
-                        <option value="m">Metros</option>
-                        <option value="Km">Kilometros</option>
+                        <option value="mg">Miligramo</option>
+                        <option value="g">Gramo</option>
+                        <option value="kg">Kilogramo</option>
+                        <option value="lb">Libra</option>
+                        <option value="oz">Onza</option>
                     </select>
 
                     <input class="form-control text-center" type="text" value="<?= isset($resultado) ? $resultado . htmlspecialchars($_POST['unidadDestino']) : 'Esperando Informacion' ?>" disabled>
 
                     <select class="form-control text-center" name="unidadDestino" id="" required>
                         <option value="">Seleccione unidad</option>
-                        <option value="mm">Milimetros</option>
-                        <option value="cm">Centimetros</option>
-                        <option value="pl">Pulgada</option>
-                        <option value="yrd">Yarda</option>
-                        <option value="m">Metros</option>
-                        <option value="Km">Kilometros</option>
+                        <option value="mg">Miligramo</option>
+                        <option value="g">Gramo</option>
+                        <option value="kg">Kilogramo</option>
+                        <option value="lb">Libra</option>
+                        <option value="oz">Onza</option>
                     </select>
 
                     <input class="btn btn-dark mb-3  fw-bold" type="submit" value="Calcular">

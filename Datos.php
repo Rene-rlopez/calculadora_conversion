@@ -66,7 +66,7 @@
                         <option value="TB">Terabyte</option>
                     </select>
 
-                    <input class="form-control text-center" type="text" value="<?= isset($resultado) ? $resultado . htmlspecialchars($_POST['unidadDestino']) : 'Esperando Informacion' ?>" disabled>
+                    <input class="form-control text-center" type="text" step="any" value="<?= isset($resultado) ? $resultado . htmlspecialchars($_POST['unidadDestino']) : 'Esperando Informacion' ?>" disabled>
 
                     <select class="form-control text-center" name="unidadDestino" id="" required>
                         <option value="">Seleccione unidad</option>
