@@ -34,15 +34,9 @@
                             </div>
                         </div>
 
-        <div class="texto-header d-flex flex-column text-center mx-auto p-2 position-absolute top-50 start-50 translate-middle">
+        <div class="texto-header d-flex flex-column text-center mx-auto p-2 position-absolute">
             <h1 class="ft-color01">Conversor de unidades</h1>
         </div> 
-
-
-        <!-- <div class="imagen d-flex flex-column text-center mx-auto p-2">
-            <h1 class="ft-color01">Conversor de unidades</h1>
-            <p class="ft-color01 fs-5">Utilizando PHP</p>
-        </div> -->
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-body-tertiary " data-bs-theme="dark">
             <div class="container justify-content-center">

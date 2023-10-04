@@ -24,12 +24,11 @@ body{
 
 /* header */
 
-/* .imagen{
-    background-image: url(../img/bg-image04.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-} */
+.texto-header{
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 .carousel-item{
     position: relative;
@@ -194,9 +193,7 @@ article .texto-principal{
     font-size: 20px;
     color: #F1F1F1;
 }
-/* .contIcon i:hover{
-    transform: scale(1.5);
-} */
+
 
 .social-icon{
     width: 50px;
@@ -227,6 +224,21 @@ article .texto-principal{
 
 @media (max-width: 992px) {
 
+    /* header */
+
+    .texto-header h1{
+        font-size: 25px;
+    }
+
+    .texto-header{
+        width: 180px;
+        left: 50%;
+        bottom: 35%;
+        transform: translateX(-50%);
+    }
+
+
+    /* tabla */
     .celdas{
         grid-template-columns: repeat(2, 4fr);
         grid-template-rows: repeat(5, 4fr);
